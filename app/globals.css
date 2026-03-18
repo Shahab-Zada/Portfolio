@@ -1,0 +1,25 @@
+:root {
+  --primary-blue: #0d1b2a;
+  --secondary-blue: #1b263b;
+  --accent-blue: #415a77;
+  --light-blue: #778da9;
+  --text-color: #e0e1dd;
+}
+
+body {
+  background-color: var(--primary-blue);
+  color: var(--text-color);
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* Section styling */
+section {
+  background: var(--primary-blue);
+  color: var(--text-color); /* ensure sections use your text color */
+}
+
+/* Alternate sections */
+section:nth-child(even) {
+  background: var(--secondary-blue);
+}
