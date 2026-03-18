@@ -180,7 +180,7 @@ export default function Contact() {
                 className="icon-box"
                 onClick={() =>
                   window.open(
-                    "https://www.linkedin.com/in/muhammadshahab-zada-134823348/",
+                    "https://www.linkedin.com/in/muhammad-shahab-zada-134823348/",
                     "_blank"
                   )
                 }
