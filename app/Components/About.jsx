@@ -96,9 +96,9 @@ export default function About() {
   ];
 
   const experience = [
-    "Internship (1 Months)",
+    "Internship (3 Months)",
     " Abdul Wali Khan University Mardan",
-    "Internship (1 Months)" ,
+    "Internship (2 Months)" ,
      "Code Celix Nastap Islamabad",
     "Full Time Work Experience", 
     "2 months Work - Brand Raize, Riyyadh Saudi-based Company",
