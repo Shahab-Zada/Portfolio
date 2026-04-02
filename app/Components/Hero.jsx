@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
+import { FaLinkedin, FaGithub, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 
 export default function Hero() {
   const canvasRef = useRef(null);
@@ -11,7 +12,6 @@ export default function Hero() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    // Get hero section dimensions
     const hero = canvas.parentElement;
     let width = canvas.width = hero.offsetWidth;
     let height = canvas.height = hero.offsetHeight;
@@ -31,15 +31,12 @@ export default function Hero() {
         this.vy = Math.random() * 1 - 0.5;
         this.size = 2 + Math.random() * 2;
       }
-
       move() {
         this.x += this.vx;
         this.y += this.vy;
-
         if (this.x > width || this.x < 0) this.vx *= -1;
         if (this.y > height || this.y < 0) this.vy *= -1;
       }
-
       draw() {
         ctx.fillStyle = "#00b4d8";
         ctx.beginPath();
@@ -89,7 +86,6 @@ export default function Hero() {
 
   return (
     <div className="hero-section d-flex align-items-center justify-content-center text-center">
-      {/* Canvas only inside hero */}
       <canvas
         ref={canvasRef}
         style={{
@@ -102,7 +98,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Hero content */}
       <div className="container">
         <motion.h1
           className="display-3 fw-bold text-light"
@@ -134,7 +129,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          className="mt-4 d-flex gap-3 justify-content-center"
+          className="mt-4 d-flex gap-3 justify-content-center flex-wrap"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
@@ -159,6 +154,52 @@ export default function Hero() {
             Contact Me
           </Link>
         </motion.div>
+
+        {/* Social Links */}
+        <motion.div
+          className="mt-4 d-flex gap-3 justify-content-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.3 }}
+        >
+          <motion.a
+            whileHover={{ scale: 1.2 }}
+            href="https://www.linkedin.com/in/muhammad-shahab-zada-134823348/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon"
+          >
+            <FaLinkedin size={26} />
+          </motion.a>
+
+          <motion.a
+            whileHover={{ scale: 1.2 }}
+            href="https://github.com/Shahab-Zada"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon"
+          >
+            <FaGithub size={26} />
+          </motion.a>
+
+          <motion.a
+            whileHover={{ scale: 1.2 }}
+            href="https://wa.me/923199001379"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon"
+          >
+            <FaWhatsapp size={26} />
+          </motion.a>
+
+          <motion.a
+            whileHover={{ scale: 1.2 }}
+            href="mailto:shahabzada302@gmail.com"
+            className="social-icon"
+          >
+            <FaEnvelope size={26} />
+          </motion.a>
+        </motion.div>
       </div>
 
       <style jsx>{`
@@ -175,6 +216,25 @@ export default function Hero() {
           background: linear-gradient(90deg, #00b4d8, #90e0ef);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+        }
+
+        .social-icon {
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background: rgba(27, 38, 59, 0.6);
+          border: 1px solid rgba(119, 141, 169, 0.3);
+          color: #00b4d8;
+          transition: 0.3s;
+        }
+
+        .social-icon:hover {
+          background: #00b4d8;
+          color: #0d1b2a;
+          transform: scale(1.2);
         }
       `}</style>
     </div>

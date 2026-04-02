@@ -107,14 +107,25 @@ export default function Contact() {
       />
 
       <div className="container position-relative" style={{ zIndex: 2 }}>
+        {/* ✨ Intro Text */}
         <motion.h1
-          className="text-center fw-bold mb-4"
-          style={{ color: "#e0e1dd" }}
+          className="text-center fw-bold mb-3"
+          style={{ color: "#e0e1dd", letterSpacing: "1px" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
           Contact Me
         </motion.h1>
+
+        <motion.p
+          className="text-center mb-5"
+          style={{ color: "#aab3c5", maxWidth: "600px", margin: "0 auto" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          Have a project idea, collaboration, or just want to say hello?  
+          I'm always open to discussing new opportunities and creative work.
+        </motion.p>
 
         <div className="row justify-content-center">
           <div className="col-md-8">
@@ -130,9 +141,16 @@ export default function Contact() {
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
             >
-              <h4 className="text-center mb-4" style={{ color: "#e0e1dd" }}>
-                Send Message
+              {/* Form Heading */}
+              <h4 className="text-center mb-2" style={{ color: "#e0e1dd" }}>
+                Let’s Work Together 🚀
               </h4>
+              <p
+                className="text-center mb-4"
+                style={{ color: "#aab3c5", fontSize: "14px" }}
+              >
+                Fill out the form below and I’ll get back to you as soon as possible.
+              </p>
 
               <form
                 ref={formRef}
@@ -166,15 +184,30 @@ export default function Contact() {
                   style={{ borderBottom: "1px solid #778da9" }}
                 ></textarea>
 
-                <button className="btn btn-outline-light fw-bold">
-                  Send
+                <button
+                  className="btn fw-bold"
+                  style={{
+                    background: "#415a77",
+                    color: "#fff",
+                    borderRadius: "30px",
+                    padding: "10px",
+                    transition: "0.3s",
+                  }}
+                >
+                  Send Message
                 </button>
               </form>
+
+              <p
+                className="text-center mt-4"
+                style={{ color: "#778da9", fontSize: "13px" }}
+              >
+                Prefer direct contact? Reach out via social links below.
+              </p>
             </motion.div>
 
             {/* 🔗 Social Icons */}
             <div className="d-flex justify-content-center gap-4 mt-5 flex-wrap">
-
               <motion.div
                 whileHover={{ scale: 1.2 }}
                 className="icon-box"
@@ -185,7 +218,7 @@ export default function Contact() {
                   )
                 }
               >
-                <FaLinkedin size={26}  color="white"/>
+                <FaLinkedin size={26} color="white" />
               </motion.div>
 
               <motion.div
@@ -195,7 +228,7 @@ export default function Contact() {
                   window.open("https://wa.me/923199001379", "_blank")
                 }
               >
-                <FaWhatsapp size={26}  color="white" />
+                <FaWhatsapp size={26} color="white" />
               </motion.div>
 
               <motion.div
@@ -205,7 +238,7 @@ export default function Contact() {
                   window.open("https://github.com/Shahab-Zada", "_blank")
                 }
               >
-                <FaGithub size={26}  color="white"/>
+                <FaGithub size={26} color="white" />
               </motion.div>
 
               <motion.div
@@ -215,10 +248,9 @@ export default function Contact() {
                   (window.location.href = "mailto:shahabzada302@gmail.com")
                 }
               >
-                <FaEnvelope size={26}  color="white"/>
+                <FaEnvelope size={26} color="white" />
               </motion.div>
             </div>
-
           </div>
         </div>
       </div>

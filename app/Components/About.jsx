@@ -95,14 +95,12 @@ export default function About() {
     "GPA: 3.36/4.0",
   ];
 
-  const experience = [
-    "Internship (3 Months)",
-    " Abdul Wali Khan University Mardan",
-    "Internship (2 Months)" ,
-     "Code Celix Nastap Islamabad",
-    "Full Time Work Experience", 
-    "2 months Work - Brand Raize, Riyyadh Saudi-based Company",
-  ];
+ const experience = [
+  "Internship (3 Months) – Abdul Wali Khan University, Mardan",
+  "Full-Time Work Experience (1 Year 2 Months) – Brand Raize, Riyadh (Saudi Arabia)",
+  "Full-Time Work Experience (3 Months) – Code Celix Nastap, Islamabad",
+ 
+];
 
   const certifications = [
     "Introduction to Front-End Development (META) - https://coursera.org/verify/FPM4K7R9WQ9A",
