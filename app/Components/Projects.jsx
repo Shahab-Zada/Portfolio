@@ -2,29 +2,32 @@
 
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
-// ✅ Use public folder URLs directly
 const projects = [
   {
     title: "E-Commerce App",
-    image: "/project2.png", // file in /public
+    image: "/project2.png",
     github: "https://github.com/Shahab-Zada/EcomWeb",
+    live: "",
   },
   {
     title: "Final Year Project Management System",
     image: "/Fyp.png",
     github: "https://github.com/Shahab-Zada/Management",
+    live: "https://awkumtech.awkum.edu.pk/",
   },
   {
     title: "Rajee Marketplace",
     image: "/Rajee.png",
-    github: "https://github.com/Shahab-Zada/EcomWeb",
+    github: "https://github.com/Shahab-Zada/Rajee",
+    live: "",
   },
   {
     title: "BrandRaize Software Company Website",
     image: "/project1.png",
-    github: "https://brandraize.com",
+    github: "",
+    live: "https://brandraize.com",
   },
 ];
 
@@ -99,13 +102,28 @@ export default function Projects() {
       />
 
       <div className="container position-relative" style={{ zIndex: 2 }}>
+        {/* 🔥 Heading */}
         <motion.h1
-          className="text-center text-light fw-bold mb-5"
+          className="text-center fw-bold mb-3 text-primary"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
           My Projects
         </motion.h1>
+
+        {/* ✨ NEW DESCRIPTION */}
+        <p
+          className="text-center text-light mb-5"
+          style={{
+            maxWidth: "650px",
+            margin: "0 auto",
+            color: "rgba(255,255,255,0.7)",
+          }}
+        >
+          Here are some of the projects I’ve worked on, showcasing my skills in
+          building modern, scalable, and user-friendly applications. Each
+          project reflects my passion for clean design and efficient solutions.
+        </p>
 
         <div className="row">
           {projects.map((proj, i) => (
@@ -115,20 +133,38 @@ export default function Projects() {
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
               >
-                {/* Image Scroll */}
+                {/* Image */}
                 <div className="img-container">
                   <img src={proj.image} alt={proj.title} />
                 </div>
 
                 <h5 className="text-light mt-3">{proj.title}</h5>
 
-                <button
-                  className="btn btn-outline-light mt-2"
-                  onClick={() => window.open(proj.github, "_blank")}
-                >
-                  <FaGithub className="me-2" />
-                  View Code
-                </button>
+                {/* 🔥 Buttons */}
+                <div className="d-flex gap-2 mt-2 flex-wrap">
+                  
+                  {/* GitHub Button (only if exists) */}
+                  {proj.github && (
+                    <button
+                      className="btn btn-outline-light"
+                      onClick={() => window.open(proj.github, "_blank")}
+                    >
+                      <FaGithub className="me-2" />
+                      GitHub Code
+                    </button>
+                  )}
+
+                  {/* Live Button (only if exists) */}
+                  {proj.live && (
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => window.open(proj.live, "_blank")}
+                    >
+                      <FaExternalLinkAlt className="me-2" />
+                      Live
+                    </button>
+                  )}
+                </div>
               </motion.div>
             </div>
           ))}
