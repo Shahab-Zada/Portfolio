@@ -10,31 +10,34 @@ const projects = [
     image: "/project2.png",
     github: "https://github.com/Shahab-Zada/EcomWeb",
     live: "",
+    text: "Full-stack e-commerce application with role-based authentication, admin dashboard, and optimized product management system for smooth user experience."
   },
   {
     title: "Final Year Project Management System",
     image: "/Fyp.png",
     github: "https://github.com/Shahab-Zada/Management",
     live: "https://awkumtech.awkum.edu.pk/",
+    text: "University final year project system with Google Drive integration, role-based access control, and automated project evaluation and tracking system."
   },
   {
     title: "Rajee Marketplace",
     image: "/Rajee.png",
     github: "https://github.com/Shahab-Zada/Rajee",
     live: "",
+    text: "Bilingual (Arabic & English) marketplace platform with secure authentication, product listings, messaging system, and full admin control panel."
   },
   {
     title: "BrandRaize Software Company Website",
     image: "/project1.png",
     github: "",
     live: "https://brandraize.com",
+    text: "Corporate website with modern UI, responsive design, and dynamic content management system for showcasing services and company profile."
   },
 ];
 
 export default function Projects() {
   const canvasRef = useRef(null);
 
-  // 🔵 Particles Background
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -94,7 +97,6 @@ export default function Projects() {
       className="position-relative py-5"
       style={{ background: "#0d1b2a" }}
     >
-      {/* Canvas */}
       <canvas
         ref={canvasRef}
         className="position-absolute top-0 start-0 w-100 h-100"
@@ -102,7 +104,6 @@ export default function Projects() {
       />
 
       <div className="container position-relative" style={{ zIndex: 2 }}>
-        {/* 🔥 Heading */}
         <motion.h1
           className="text-center fw-bold mb-3 text-primary"
           initial={{ opacity: 0 }}
@@ -111,25 +112,19 @@ export default function Projects() {
           My Projects
         </motion.h1>
 
-        {/* ✨ NEW DESCRIPTION */}
         <p
           className="text-center text-light mb-5"
-          style={{
-            maxWidth: "650px",
-            margin: "0 auto",
-            color: "rgba(255,255,255,0.7)",
-          }}
+          style={{ maxWidth: "650px", margin: "0 auto", opacity: 0.8 }}
         >
           Here are some of the projects I’ve worked on, showcasing my skills in
-          building modern, scalable, and user-friendly applications. Each
-          project reflects my passion for clean design and efficient solutions.
+          building modern, scalable, and user-friendly applications.
         </p>
 
         <div className="row">
           {projects.map((proj, i) => (
-            <div className="col-md-6 mb-4" key={i}>
+            <div className="col-md-6 col-lg-3 mb-4" key={i}>
               <motion.div
-                className="project-card p-3 rounded"
+                className="project-card p-3 rounded h-100"
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
               >
@@ -138,29 +133,34 @@ export default function Projects() {
                   <img src={proj.image} alt={proj.title} />
                 </div>
 
-                <h5 className="text-light mt-3">{proj.title}</h5>
+                {/* Title */}
+                <h5 className="text-light mt-3 fs-6 fw-bold">
+                  {proj.title}
+                </h5>
 
-                {/* 🔥 Buttons */}
+                {/* Description (NEW TEXT ADDED) */}
+                <p className="text-light small opacity-75">
+                  {proj.text}
+                </p>
+
+                {/* Buttons */}
                 <div className="d-flex gap-2 mt-2 flex-wrap">
-                  
-                  {/* GitHub Button (only if exists) */}
                   {proj.github && (
                     <button
-                      className="btn btn-outline-light"
+                      className="btn btn-outline-light btn-sm"
                       onClick={() => window.open(proj.github, "_blank")}
                     >
-                      <FaGithub className="me-2" />
-                      GitHub Code
+                      <FaGithub className="me-1" />
+                      GitHub
                     </button>
                   )}
 
-                  {/* Live Button (only if exists) */}
                   {proj.live && (
                     <button
-                      className="btn btn-primary"
+                      className="btn btn-primary btn-sm"
                       onClick={() => window.open(proj.live, "_blank")}
                     >
-                      <FaExternalLinkAlt className="me-2" />
+                      <FaExternalLinkAlt className="me-1" />
                       Live
                     </button>
                   )}
@@ -184,7 +184,7 @@ export default function Projects() {
         }
 
         .img-container {
-          height: 250px;
+          height: 280px;
           overflow: hidden;
           border-radius: 10px;
         }
